@@ -1,0 +1,41 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  type      String   // 'income' or 'expense'
+  category  String
+  amount    Float
+  date      DateTime
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([date])
+  @@index([type])
+}
+
+model InvestmentTransaction {
+  id            String   @id @default(uuid())
+  ticker        String
+  type          String   // 'stock', 'etf', or 'crypto'
+  action        String   // 'buy' or 'sell'
+  units         Float
+  price_per_unit Float
+  date          DateTime
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([date])
+  @@index([ticker])
+  @@index([type])
+}
