@@ -1,6 +1,7 @@
 # Finura - Personal Finance Tracker
 
 A lean, responsive personal finance app for tracking budget and investments.
+<img width="1919" height="912" alt="image" src="https://github.com/user-attachments/assets/993148d6-7500-4a43-8552-83c039ad0210" />
 
 ## Tech Stack
 
